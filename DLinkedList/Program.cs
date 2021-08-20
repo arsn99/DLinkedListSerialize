@@ -149,7 +149,8 @@ namespace DLinkedList
             FileStream file = new FileStream("list.dat", FileMode.Create); 
             listRandom.Serialize(file);
             file.Close();
-
+            Console.WriteLine("Замените в файле \'.\' на \'\\n\' или \'\\n\\n\' и нажмите Enter");
+            Console.ReadKey();
             file = new FileStream("list.dat", FileMode.Open);
             ListRandom listRandom2 = new ListRandom(file);
             file.Close();
