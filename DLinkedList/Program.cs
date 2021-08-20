@@ -33,10 +33,6 @@ namespace DLinkedList
             }
             public ListRandom(string data)
             {
-                //Head = Tail = new ListNode();
-                //Head.Data = data;
-                //Head.Next = null;
-                //Count++;
                 AddNode(data);
             }
             public void AddNode(string data)
@@ -78,7 +74,6 @@ namespace DLinkedList
                 if (Head != null)
                 {
                     Dictionary<ListNode, int> indexList = new Dictionary<ListNode, int>();
-                    //List<ListNode> indexList = new List<ListNode>();
                     int i = 0;
                     for (ListNode node = Head; node != null; node = node.Next,i++)
                         indexList.Add(node,i);
@@ -96,8 +91,6 @@ namespace DLinkedList
             public void Deserialize(Stream s)
             {
                 Count = 0;
-                //ListNode node = new ListNode();
-                //Head = node;
                 List<ListNode> indexList = new List<ListNode>();
 
                 using (StreamReader reader = new StreamReader(s))
@@ -119,7 +112,6 @@ namespace DLinkedList
                         }
                         else
                         {
-                            //node.Data = $"{temp}.{line}";
                             if (temp==string.Empty)
                                 AddNode(line);
                             else
@@ -128,19 +120,11 @@ namespace DLinkedList
                                 temp = String.Empty;
                             }
                             indexList.Add(Tail);
-                            //ListNode next = new ListNode();
-                            //node.Next = next;
-                            //next.Previous = node;
-                            //indexList.Add(node);
-                            //node = next;
-                            //Count++;
                         }
                     }
                 }
                 if (Head != null)
                 {
-                    //Tail = node.Previous;
-                    //Tail.Next = null;
                     foreach (ListNode item in indexList)
                     {
                         var tempString = item.Data.Split('.');
@@ -154,7 +138,7 @@ namespace DLinkedList
        
         static void Main(string[] args)
         {
-            ListRandom listRandom = new ListRandom();//new ListRandom("Head Test");
+            ListRandom listRandom = new ListRandom();
             Random random = new Random();
             for (int i = 0; i < 5/*random.Next(5,10)*/; i++)
             {
